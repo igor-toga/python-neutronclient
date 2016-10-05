@@ -196,6 +196,8 @@ COMMAND_V2 = {
     'router-interface-delete': router.RemoveInterfaceRouter,
     'router-gateway-set': router.SetGatewayRouter,
     'router-gateway-clear': router.RemoveGatewayRouter,
+    'router-gateway-add': router.AddGwInterfaceRouter,
+    'router-gateway-delete': router.RemoveGwInterfaceRouter,
     'floatingip-list': floatingip.ListFloatingIP,
     'floatingip-show': floatingip.ShowFloatingIP,
     'floatingip-create': floatingip.CreateFloatingIP,
