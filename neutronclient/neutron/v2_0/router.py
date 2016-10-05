@@ -315,7 +315,6 @@ class AddGwInterfaceRouter(neutronV20.NeutronCommand):
 
     def take_action(self, parsed_args):
         neutron_client = self.get_client()
-        print("take_action")
         _router_id = neutronV20.find_resourceid_by_name_or_id(
             neutron_client, self.resource, parsed_args.router)
         _ext_net_id = neutronV20.find_resourceid_by_name_or_id(
@@ -365,8 +364,7 @@ class RemoveGwInterfaceRouter(neutronV20.NeutronCommand):
             neutron_client, 'network', parsed_args.external_network)
         router_dict = {'network_id': _ext_net_id}
         router_dict['agent_id'] = parsed_args.l3_agent
-        
-        
+
         neutron_client.remove_gateway_interface(_router_id, router_dict)
-        print(_('Removed gateway interface from router %s') % parsed_args.router,
-              file=self.app.stdout)
+        print(_('Removed gateway interface from router %s') %
+              parsed_args.router, file=self.app.stdout)

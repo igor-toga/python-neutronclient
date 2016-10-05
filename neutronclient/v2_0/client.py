@@ -823,16 +823,16 @@ class Client(ClientBase):
     @APIParamsCall
     def add_gateway_interface(self, router, body=None):
         """Adds an external network gateway to the specified router."""
-        return self.put((self.router_path % router) + 
+        return self.put((self.router_path % router) +
                         "/add_gateway_interface",
                         body={'router': {'external_gateway_info': body}})
 
     @APIParamsCall
     def remove_gateway_interface(self, router, body=None):
         """Removes an external network gateway from the specified router."""
-        return self.put((self.router_path % router) + 
+        return self.put((self.router_path % router) +
                         "/remove_gateway_interface",
-                        body={'router': {'external_gateway_info': {}}})
+                        body={'router': {'external_gateway_info': body}})
 
     @APIParamsCall
     def list_floatingips(self, retrieve_all=True, **_params):
